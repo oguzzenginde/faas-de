@@ -1,4 +1,4 @@
-package com.faas.core.api.model.ws.assets.dto;
+package com.faas.core.api.model.ws.asset.dto;
 
 import com.faas.core.base.model.db.assets.content.AssetDBModel;
 

@@ -32,7 +32,9 @@ public class ApiRoute {
     public static final String API_GET_CAMPAIGN_PROCESS_DETAILS = "apigetcampaignprocessdetails";
 
     public static final String API_GET_AGENT_ASSETS = "apigetagentassets";
-
+    public static final String API_GET_AGENT_ASSET = "apigetagentasset";
+    public static final String API_GET_CAMPAIGN_ASSETS = "apigetcampaignassets";
+    public static final String API_GET_CAMPAIGN_ASSET = "apigetcampaignasset";
 
 
     public static final String API_GET_AGENT_INQUIRY = "apigetagentinquiry";

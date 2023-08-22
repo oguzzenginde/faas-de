@@ -1,8 +1,8 @@
 
 package com.faas.core.api.endpoint.controller.assets;
 
-import com.faas.core.api.middleware.assets.ApiAssetMiddleware;
-import com.faas.core.api.model.ws.assets.ApiAssetWSModel;
+import com.faas.core.api.middleware.asset.ApiAssetMiddleware;
+import com.faas.core.api.model.ws.asset.ApiAssetWSModel;
 import com.faas.core.utils.config.ApiRoute;
 import com.faas.core.utils.config.AppConstant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +22,11 @@ public class ApiAssetController {
     @Autowired
     ApiAssetMiddleware apiAssetMiddleware;
 
-    @RequestMapping(value = ApiRoute.API_GET_AGENT_ASSETS, method = RequestMethod.POST)
-    public ResponseEntity<?> getAgentAssets(@RequestParam long agentId) {
 
-        ApiAssetWSModel response = apiAssetMiddleware.getAgentAssets(agentId);
+    @RequestMapping(value = ApiRoute.API_GET_AGENT_ASSETS, method = RequestMethod.POST)
+    public ResponseEntity<?> apiGetAgentAssets(@RequestParam long agentId) {
+
+        ApiAssetWSModel response = apiAssetMiddleware.apiGetAgentAssets(agentId);
 
         if (response.getGeneral().getStatus().equalsIgnoreCase(AppConstant.GENERAL_SUCCESS_STATUS)) {
             return new ResponseEntity<>(response, HttpStatus.OK);
@@ -34,6 +35,40 @@ public class ApiAssetController {
     }
 
 
+    @RequestMapping(value = ApiRoute.API_GET_AGENT_ASSET, method = RequestMethod.POST)
+    public ResponseEntity<?> apiGetAgentAsset(@RequestParam long agentId) {
+
+        ApiAssetWSModel response = apiAssetMiddleware.apiGetAgentAsset(agentId);
+
+        if (response.getGeneral().getStatus().equalsIgnoreCase(AppConstant.GENERAL_SUCCESS_STATUS)) {
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+
+    @RequestMapping(value = ApiRoute.API_GET_CAMPAIGN_ASSETS, method = RequestMethod.POST)
+    public ResponseEntity<?> apiGetCampaignAssets(@RequestParam long agentId) {
+
+        ApiAssetWSModel response = apiAssetMiddleware.apiGetCampaignAssets(agentId);
+
+        if (response.getGeneral().getStatus().equalsIgnoreCase(AppConstant.GENERAL_SUCCESS_STATUS)) {
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+
+    @RequestMapping(value = ApiRoute.API_GET_CAMPAIGN_ASSET, method = RequestMethod.POST)
+    public ResponseEntity<?> apiGetCampaignAsset(@RequestParam long agentId) {
+
+        ApiAssetWSModel response = apiAssetMiddleware.apiGetCampaignAsset(agentId);
+
+        if (response.getGeneral().getStatus().equalsIgnoreCase(AppConstant.GENERAL_SUCCESS_STATUS)) {
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
 
 
 }
