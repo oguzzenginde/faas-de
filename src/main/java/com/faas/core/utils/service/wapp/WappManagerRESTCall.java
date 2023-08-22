@@ -44,7 +44,6 @@ public class WappManagerRESTCall {
 
     public String scanWappQRCode(String serverUrl, String instanceKey) throws IOException {
 
-
         HttpUrl.Builder urlBuilder = HttpUrl.parse(serverUrl + "/instance").newBuilder();
         urlBuilder.addQueryParameter("key", instanceKey);
         String url = urlBuilder.build().toString();

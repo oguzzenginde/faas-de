@@ -28,7 +28,6 @@ public class SystemTaskService {
     AppUtils appUtils;
 
 
-
     public SystemStateWSModel getSystemState(String from) {
 
         SystemStateWSModel response = new SystemStateWSModel();
@@ -71,5 +70,6 @@ public class SystemTaskService {
             }
         }
     }
+
 
 }
